@@ -1,7 +1,6 @@
 {
   "name": "frontendproject",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +14,6 @@
   "bugs": {
     "url": "https://github.com/canddx3/FrontendProject/issues"
   },
-  "homepage": "https://github.com/canddx3/FrontendProject#readme"
+  "homepage": "https://github.com/canddx3/FrontendProject#readme",
+  "description": ""
 }
