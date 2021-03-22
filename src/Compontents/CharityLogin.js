@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ApiService from "../service/ApiService";
-import CharityLoginBar from "../Layout/CharityLoginBar";
+import CharityLoginBar from "../NavBars/CharityLoginBar";
 import Axios from "axios";
 
 class CharityLogin extends Component {
@@ -49,7 +49,7 @@ class CharityLogin extends Component {
     return (
       <div>
         <CharityLoginBar />
-        <h2 className="hero-text">Charity Login</h2>
+        <h2 className="container">Charity Login</h2>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>User Name:</label>

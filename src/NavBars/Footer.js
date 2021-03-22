@@ -8,6 +8,5 @@ export default class Footer extends Component {
     <div className="footer">
         <p>Connecting you to your community</p>
     </div> 
-  
   );
 }}

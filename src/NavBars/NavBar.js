@@ -4,8 +4,7 @@ export default class NavBar extends Component {
 
 
   render() {
-  return(
-    <div>
+  return (
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
@@ -13,13 +12,11 @@ export default class NavBar extends Component {
             type="button"
             className="navbar-toggle"
             data-toggle="collapse"
-            data-target="#myNavbar"
-          >
+            data-target="#myNavbar" >
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <img id="NavLogo" src="https://github.com/bethel-school-of-technology/community-builders-frontend/blob/Resources/builders.png?raw=true" alt="Logo" />
           <h4 className="navbar-brand">Community Builders</h4>
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
@@ -27,10 +24,18 @@ export default class NavBar extends Component {
             <li>
               <a href="http://localhost:8080">Home</a>
             </li>
+            <li>
+              <a href="http://localhost:8080/CharityEvent">Volunteer Opportuntiies</a>
+            </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
               <h5 className="navbar-brand">Charities</h5>
+            </li>
+            <li>
+              <a href="http://localhost:8080/CharitySignup" target="_self">
+                <span className="glyphicon glyphicon-user"></span> Sign Up
+              </a>
             </li>
             <li>
               <a href="http://localhost:8080/CharityLogin">
@@ -41,7 +46,5 @@ export default class NavBar extends Component {
         </div>
       </div>
     </nav>
-    <hr/>
-</div>    
-    ); 
+  );
 }}

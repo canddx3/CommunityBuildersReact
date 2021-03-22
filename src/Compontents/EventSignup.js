@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EventService from "../service/EventService";
-import CharityProfileBar from "../Layout/CharityProfileBar";
+import CharityProfileBar from "../NavBars/CharityProfileBar";
 
 class EventSignup extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ class EventSignup extends Component {
     return (
       <div>
         <CharityProfileBar />
-        <h2 className="hero-text">Events Signup</h2>
+        <h2 className="container">Events Signup</h2>
         <form>
           <div className="form-group">
             <label>Charity Name:</label>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ApiService from "../service/ApiService";
-import CharityProfileBar from "../Layout/CharityProfileBar";
+import CharityProfileBar from "../NavBars/CharityProfileBar";
 
 class CharityProfile extends Component {
   constructor(props) {
@@ -74,7 +74,7 @@ class CharityProfile extends Component {
     return (
       <div>
         <CharityProfileBar />
-        <h2 className="hero-text">Charity Profile</h2>
+        <h2 className="container">Charity Profile</h2>
         <form>
           <div className="form-group">
             <label>Charity Name:</label>

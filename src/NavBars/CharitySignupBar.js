@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-export default class CharityProfileBar extends Component {
+
+export default class NavBar extends Component {
   render() {
     return (
       <div>
@@ -10,17 +11,11 @@ export default class CharityProfileBar extends Component {
                 type="button"
                 className="navbar-toggle"
                 data-toggle="collapse"
-                data-target="#myNavbar"
-              >
+                data-target="#myNavbar">
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <img
-                id="NavLogo"
-                src="https://github.com/bethel-school-of-technology/community-builders-frontend/blob/Resources/builders.png?raw=true"
-                alt="Logo"
-              />
               <h4 className="navbar-brand">Community Builders</h4>
             </div>
             <div className="collapse navbar-collapse" id="myNavbar">
@@ -34,21 +29,14 @@ export default class CharityProfileBar extends Component {
                   <h5 className="navbar-brand">Charities</h5>
                 </li>
                 <li>
-                  <a href="http://localhost:8080/CharityProfile">
-                    <span></span>Charity Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="http://localhost:8080/CharitySignup" target="_self">
-                    <span className="glyphicon glyphicon-log-in"></span>
-                    Logout
+                  <a href="http://localhost:8080/CharityLogin">
+                    <span className="glyphicon glyphicon-log-in"></span> Login
                   </a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <hr />
       </div>
     );
   }

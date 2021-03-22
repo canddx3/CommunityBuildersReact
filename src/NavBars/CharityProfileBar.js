@@ -16,11 +16,6 @@ export default class CharityProfileBar extends Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
-                <img
-                  id="NavLogo"
-                  src="https://github.com/bethel-school-of-technology/community-builders-frontend/blob/Resources/builders.png?raw=true"
-                  alt="Logo"
-                />
                 <h4 className="navbar-brand">Community Builders</h4>
               </div>
               <div className="collapse navbar-collapse" id="myNavbar">
@@ -52,7 +47,6 @@ export default class CharityProfileBar extends Component {
               </div>
             </div>
           </nav>
-          <hr />
         </div>
       );
     }}

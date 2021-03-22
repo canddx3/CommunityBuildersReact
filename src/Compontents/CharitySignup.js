@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import ApiService from "../service/ApiService";
-import CharitySignupBar from "../Layout/CharitySignupBar";
+import CharitySignupBar from "../NavBars/CharitySignupBar";
 
 class CharitySignup extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class CharitySignup extends Component {
     return (
       <div>
         <CharitySignupBar />
-        <h2 className="hero-text">Charity Signup</h2>
+        <h2 className="container">Charity Signup</h2>
         <form>
           <div className="form-group">
             <label>User Name:</label>
@@ -57,60 +57,48 @@ class CharitySignup extends Component {
               type="text"
               name="username"
               value={this.state.username}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange}/>
           </div>
-
           <div className="form-group">
             <label>Password:</label>
             <input
               type="password"
               name="password"
               value={this.state.Password}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange}/>
           </div>
-
           <div className="form-group">
             <label>Charity Name:</label>
             <input
               type="text"
               name="charityName"
               value={this.state.charityName}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange}/>
           </div>
-
           <div className="form-group">
             <label>Charity Category:</label>
             <input
               type="text"
               name="charityCat"
               value={this.state.charityCat}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange} />
           </div>
-
           <div className="form-group">
             <label>Charity Address:</label>
             <input
               type="text"
               name="charityStreet"
               value={this.state.charityStreet}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange}/>
           </div>
-
           <div className="form-group">
             <label>Charity Phone:</label>
             <input
               type="text"
               name="charityPhone"
               value={this.state.charityPhone}
-              onChange={this.onChange}
-            />
+              onChange={this.onChange} />
           </div>
-
           <button className="btn btn-success" onClick={this.saveUser}>
             Create My Account
           </button>

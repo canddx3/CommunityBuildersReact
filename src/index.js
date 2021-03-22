@@ -5,7 +5,7 @@ import CharityLogin from './Compontents/CharityLogin';
 import CharityProfile from './Compontents/CharityProfile';
 import CharitySignup from './Compontents/CharitySignup';
 import EventSignup from './Compontents/EventSignup';
-import Footer from './Layout/Footer';
+import Footer from './NavBars/Footer';
 import Home from './Compontents/Home';
 import React from 'react';
 import ReactDOM from 'react-dom';

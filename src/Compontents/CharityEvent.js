@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import CharityEventBar from "../Layout/CharityEventBar";
+import CharityEventBar from "../NavBars/CharityEventBar";
 import EventService from "../service/EventService";
 
 class CharityEvent extends Component {
@@ -8,8 +8,8 @@ class CharityEvent extends Component {
     super(props);
     this.state = {
       events: [],
-      message: null
-    };  
+      message: null,
+    };
     this.reloadEventsList = this.reloadEventsList.bind(this);
   }
 
@@ -18,7 +18,7 @@ class CharityEvent extends Component {
   }
 
   reloadEventsList() {
-    EventService.fetchEvents().then(response => {
+    EventService.fetchEvents().then((response) => {
       console.log(response.data);
       this.setState({ events: response.data });
     });
@@ -28,7 +28,6 @@ class CharityEvent extends Component {
     return (
       <div>
         <CharityEventBar />
-
         <header className="container">
           <div className="hero-image">
             <img
@@ -41,39 +40,37 @@ class CharityEvent extends Component {
               <h2>Volunteer Opportunities</h2>
             </div>
           </div>
-        </header>
-        
-        <div className="container">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Charity Name</th>
-                <th>Charity Phone</th>
-                <th>Event Name</th>
-                <th>Event Location</th>
-                <th>Event Date</th>
-                <th>Event Time</th>
-                <th>Event Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.events.map(events => (
-                <tr key={events.id}>
-                  <td>{events.charityName}</td>
-                  <td>{events.charityPhone}</td>
-                  <td>{events.eventName}</td>
-                  <td>{events.eventLocation}</td>
-                  <td>{events.eventDate}</td>
-                  <td>{events.eventTime}</td>
-                  <td>{events.eventDescription}</td>
+          <div className="content">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Charity Name</th>
+                  <th>Charity Phone</th>
+                  <th>Event Name</th>
+                  <th>Event Location</th>
+                  <th>Event Date</th>
+                  <th>Event Time</th>
+                  <th>Event Description</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-     </div>
+              </thead>
+              <tbody>
+                {this.state.events.map((events) => (
+                  <tr key={events.id}>
+                    <td>{events.charityName}</td>
+                    <td>{events.charityPhone}</td>
+                    <td>{events.eventName}</td>
+                    <td>{events.eventLocation}</td>
+                    <td>{events.eventDate}</td>
+                    <td>{events.eventTime}</td>
+                    <td>{events.eventDescription}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </header>
+      </div>
     );
-  
   }
 }
 
