@@ -1,10 +1,11 @@
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 
-import CharityEvent from './Compontents/CharityEvent';
+import VolunteerEvents from './Compontents/VolunteerEvents';
 import CharityLogin from './Compontents/CharityLogin';
 import CharityProfile from './Compontents/CharityProfile';
 import CharitySignup from './Compontents/CharitySignup';
-import EventSignup from './Compontents/EventSignup';
+import CreateEvent from './Compontents/CreateEvent';
+import CharityUpdate from './Compontents/CharityUpdate';
 import Footer from './NavBars/Footer';
 import Home from './Compontents/Home';
 import React from 'react';
@@ -17,8 +18,9 @@ const App = () => (
       <Route exact path="/CharitySignup" component={CharitySignup} />
       <Route exact path="/CharityLogin" component={CharityLogin} />
       <Route exact path="/CharityProfile" component={CharityProfile} />
-      <Route exact path="/CharityEvent" component={CharityEvent} />
-      <Route exact path="/EventSignup" component={EventSignup} />
+      <Route exact path="/CharityUpdate" component={CharityUpdate} />
+      <Route exact path="/VolunteerEvent" component={VolunteerEvents} />
+      <Route exact path="/CreateEvent" component={CreateEvent} />
       <Footer />
     </div>
     

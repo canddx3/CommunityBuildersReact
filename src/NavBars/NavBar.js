@@ -1,12 +1,10 @@
 import React, {Component} from "react";
 
 export default class NavBar extends Component {
-
-
   render() {
   return (
     <nav className="navbar navbar-inverse">
-      <div className="container-fluid">
+      <div>
         <div className="navbar-header">
           <button
             type="button"
@@ -25,12 +23,12 @@ export default class NavBar extends Component {
               <a href="http://localhost:8080">Home</a>
             </li>
             <li>
-              <a href="http://localhost:8080/CharityEvent">Volunteer Opportuntiies</a>
+              <a href="http://localhost:8080/VolunteerEvent">Volunteer Opportuntiies</a>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <h5 className="navbar-brand">Charities</h5>
+              <a href="http://localhost:8080/CharityProfile">Charities</a>
             </li>
             <li>
               <a href="http://localhost:8080/CharitySignup" target="_self">

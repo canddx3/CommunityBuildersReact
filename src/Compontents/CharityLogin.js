@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ApiService from "../service/ApiService";
-import CharityLoginBar from "../NavBars/CharityLoginBar";
-import Axios from "axios";
+import UserBar from "../NavBars/UserBar";
+import UserService from "../service/UserService";
 
 class CharityLogin extends Component {
   constructor(props) {
@@ -12,10 +11,7 @@ class CharityLogin extends Component {
       charityTitle: "",
       charityName: "",
       charityCat: "",
-      charityStreet: "",
-      charityCity: "",
-      charityState: "",
-      charityZip: "",
+      charityAddress: "",
       charityPhone: ""
     };
     this.getUsername = this.getUsername.bind(this);
@@ -29,15 +25,13 @@ class CharityLogin extends Component {
       charityTitle: this.state.charityTitle,
       charityName: this.state.charityName,
       charityCat: this.state.charityCat,
-      charityCity: this.state.charityCity,
-      charityStreet: this.state.charityStreet,
-      charityState: this.state.charityState,
-      charityZip: this.state.charityZip,
+      charityAddress: this.state.charityAddress,
       charityPhone: this.state.charityPhone
     };
-    ApiService.fetchUser(username)
-      .then(res => {
-        this.setState({ message: "User added successfully." });
+
+    UserService.getUser(username)
+    .then(res => {
+        this.setState({ message: "User Entered successfully." });
         this.props.history.push("/CharityProfile");
       })
       .catch(err => console.log(err));
@@ -48,17 +42,16 @@ class CharityLogin extends Component {
   render() {
     return (
       <div>
-        <CharityLoginBar />
+        <UserBar />
         <h2 className="container">Charity Login</h2>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <div className="form-group">
             <label>User Name:</label>
             <input 
               type="text"
               name="userId"
-              value={this.state.userId}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -66,11 +59,10 @@ class CharityLogin extends Component {
             <input
               type="password"
               name="password"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
-          <button className="btn btn-success" onClick={this.loadUser}>
+          <button className="btn btn-success" onClick={this.getUsername}>
             Save
           </button>
         </form>

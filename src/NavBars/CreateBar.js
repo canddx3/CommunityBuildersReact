@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-export default class CharityProfileBar extends Component {
+export default class CreateBar extends Component {
       render() {
       return (
         <div>
@@ -10,8 +10,7 @@ export default class CharityProfileBar extends Component {
                   type="button"
                   className="navbar-toggle"
                   data-toggle="collapse"
-                  data-target="#myNavbar"
-                >
+                  data-target="#myNavbar">
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
@@ -26,21 +25,17 @@ export default class CharityProfileBar extends Component {
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li>
-                    <h5 className="navbar-brand">Charities</h5>
-                  </li>
-                  <li>
-                    <a href="http://localhost:8080/EventSignup">
+                    <a href="http://localhost:8080/CreateEvent">
                       <span className="glyphicon glyphicon-calendar"></span>Create
                       Event
                     </a>
                   </li>
                   <li>
                     <a
-                      href="http://localhost:8080/CharitySignup"
-                      target="_self"
-                    >
+                      href="http://localhost:8080/CharityUpdate"
+                      target="_self">
                       <span className="glyphicon glyphicon-log-in"></span>
-                      Logout
+                      Update Charity Info
                     </a>
                   </li>
                 </ul>

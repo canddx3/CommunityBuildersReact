@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import EventService from "../service/EventService";
-import CharityProfileBar from "../NavBars/CharityProfileBar";
+import UserBar from "../NavBars/UserBar";
 
-class EventSignup extends Component {
+class CreateEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class EventSignup extends Component {
 
   saveEvent = (e) => {
     e.preventDefault();
-    let events = {
+    let event = {
       charityName: this.state.charityName,
       charityPhone: this.state.charityPhone,
       eventName: this.state.eventName,
@@ -28,9 +28,10 @@ class EventSignup extends Component {
       eventTime: this.state.eventTime,
       eventDescription: this.state.eventDescription,
     };
-    EventService.addEvents(events)
+    EventService.addEvents(event)
       .then((res) => {
-        this.props.history.push("/CharityEvent");
+        this.setState({ message: "Event added successfully." });
+        this.props.history.push("/VolunteerEvent");
       })
       .catch((err) => console.log(err));
   };
@@ -40,7 +41,7 @@ class EventSignup extends Component {
   render() {
     return (
       <div>
-        <CharityProfileBar />
+        <UserBar />
         <h2 className="container">Events Signup</h2>
         <form>
           <div className="form-group">
@@ -48,19 +49,17 @@ class EventSignup extends Component {
             <input
               type="text"
               name="charityName"
-              value={this.state.charityName}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
             <label className="item-title">Charity Phone:</label>
             <input
-              type="text"
+              type="phone"
               name="charityPhone"
-              value={this.state.charityPhone}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -68,9 +67,8 @@ class EventSignup extends Component {
             <input
               type="text"
               name="eventName"
-              value={this.state.eventName}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -78,9 +76,8 @@ class EventSignup extends Component {
             <input
               type="text"
               name="eventLocation"
-              value={this.state.eventLocation}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -88,9 +85,8 @@ class EventSignup extends Component {
             <input
               type="text"
               name="eventDate"
-              value={this.state.eventDate}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -98,9 +94,8 @@ class EventSignup extends Component {
             <textarea
               type="text"
               name="eventDescription"
-              value={this.state.eventDescription}
-              onChange={this.onChange}
-            />
+              value={this.state.value}
+              onChange={this.onChange}/>
           </div>
 
           <div className="form-group">
@@ -109,9 +104,8 @@ class EventSignup extends Component {
             <select
               type="text"
               name="eventTime"
-              value={this.state.eventTime}
-              onChange={this.onChange}
-            >
+              value={this.state.value}
+              onChange={this.onChange}>
               <option>12:00am</option>
               <option>12:30am</option>
               <option>1:00am</option>
@@ -162,7 +156,7 @@ class EventSignup extends Component {
               <option>11:30pm</option>
             </select>
           </div>
-          <button className="btn btn-success" onClick={this.saveUser}>
+          <button className="btn btn-success" onClick={this.saveEvent}>
             Update
           </button>
         </form>
@@ -171,4 +165,4 @@ class EventSignup extends Component {
   }
 }
 
-export default EventSignup;
+export default CreateEvent;

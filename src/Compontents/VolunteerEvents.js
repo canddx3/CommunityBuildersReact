@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import CharityEventBar from "../NavBars/CharityEventBar";
+import NavBar from "../NavBars/NavBar";
 import EventService from "../service/EventService";
 
-class CharityEvent extends Component {
+class VolunteerEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,6 @@ class CharityEvent extends Component {
 
   reloadEventsList() {
     EventService.fetchEvents().then((response) => {
-      console.log(response.data);
       this.setState({ events: response.data });
     });
   }
@@ -27,30 +26,29 @@ class CharityEvent extends Component {
   render() {
     return (
       <div>
-        <CharityEventBar />
+        <NavBar />
         <header className="container">
           <div className="hero-image">
             <img
               src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
               alt="Do Good"
               width="100%"
-              className="responsive"
-            />
+              className="responsive"/>
             <div className="hero-text">
               <h2>Volunteer Opportunities</h2>
             </div>
           </div>
-          <div className="content">
+          <div className="container">
             <table className="table table-striped">
               <thead>
                 <tr>
                   <th>Charity Name</th>
                   <th>Charity Phone</th>
                   <th>Event Name</th>
+                  <th>Event Description</th>
                   <th>Event Location</th>
                   <th>Event Date</th>
                   <th>Event Time</th>
-                  <th>Event Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,11 +56,11 @@ class CharityEvent extends Component {
                   <tr key={events.id}>
                     <td>{events.charityName}</td>
                     <td>{events.charityPhone}</td>
-                    <td>{events.eventName}</td>
+                    <td>{events.eventName}</td>                    
+                    <td>{events.eventDescription}</td>
                     <td>{events.eventLocation}</td>
                     <td>{events.eventDate}</td>
                     <td>{events.eventTime}</td>
-                    <td>{events.eventDescription}</td>
                   </tr>
                 ))}
               </tbody>
@@ -74,4 +72,4 @@ class CharityEvent extends Component {
   }
 }
 
-export default CharityEvent;
+export default VolunteerEvent;

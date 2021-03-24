@@ -26,12 +26,7 @@ export default class NavBar extends Component {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <h5 className="navbar-brand">Charities</h5>
-                </li>
-                <li>
-                  <a href="http://localhost:8080/CharityLogin">
-                    <span className="glyphicon glyphicon-log-in"></span> Login
-                  </a>
+                  <a href="http://localhost:8080/CharityProfile">Charities</a>
                 </li>
               </ul>
             </div>
