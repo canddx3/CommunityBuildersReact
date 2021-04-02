@@ -1,28 +1,33 @@
 import axios from 'axios';
 
-const USER_API_BASE_URL = 'http://localhost:8081/api/charity/user';
+const USER_API_BASE_URL = 'http://localhost:8081/api/charity';
 
 class UserService {
 
-    fetchUsers() {
+//charity profile
+    getCharity() {
         return axios.get(USER_API_BASE_URL);
     }
 
-    addUser(user) {
-        return axios.post(""+USER_API_BASE_URL, user);
+//charity signup
+    addCharity(charity) {
+        return axios.post(USER_API_BASE_URL, charity);
     }
 
-    getUser(id) {
-        return axios.get(USER_API_BASE_URL, id);
+//charityLogin
+    getCharity(charity) {
+        return axios.get("http://localhost:8081/api/charity/1");
     }
 
-    postUser(username) {
-        return axios.post(""+USER_API_BASE_URL + '/' + username);
+//charity update
+    editCharity(id) {
+        return axios.put(USER_API_BASE_URL, id);
     } 
 
-    editUser(id) {
-        return axios.put(""+USER_API_BASE_URL, username);
-    } 
+//charity delete
+    deleteCharity(id) {
+        return axios.delete(USER_API_BASE_URL, id)
+    }
 
 }
 

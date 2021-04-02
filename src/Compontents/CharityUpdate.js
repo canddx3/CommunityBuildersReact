@@ -15,12 +15,13 @@ class CharityUpdate extends Component {
       charityAddress: "",
       charityPhone: ""
     };
-    this.saveUser = this.saveUser.bind(this);
+    this.saveCharity = this.saveCharity.bind(this);
   }
 
-  saveUser = e => {
+  saveCharity = e => {
     e.preventDefault();
-    let username = {
+    let charityUser = {
+      id: this.state.id,
       username: this.state.username,
       password: this.state.password,
       charityName: this.state.charityName,
@@ -29,9 +30,9 @@ class CharityUpdate extends Component {
       charityPhone: this.state.charityPhone
     };
 
-    UserService.editUser(id)
-      .then(res => {
-        this.setState({ message: "User added successfully." });
+    UserService.editCharity(charityUser)
+      .then((res) => {
+        this.setState({message: "Charity updated successfully."})
         this.props.history.push("/CharityProfile");
       })
       .catch(err => console.log(err));
@@ -45,6 +46,15 @@ class CharityUpdate extends Component {
         <UserBar/>
         <h2 className="container">Charity Update</h2> 
           <form>
+          <div className="form-group">
+            <label>Charity UserName:</label>
+            <input
+              type="text"
+              name="username"
+              value={this.state.value}
+              onChange={this.onChange}/>
+          </div>
+
           <div className="form-group">
             <label>Charity Name:</label>
             <input
@@ -81,7 +91,7 @@ class CharityUpdate extends Component {
               onChange={this.onChange}/>
           </div>
           
-          <button className="btn btn-success" onClick={this.saveUser}>
+          <button className="btn btn-success" onClick={this.saveCharity}>
             Update
           </button>
         </form>

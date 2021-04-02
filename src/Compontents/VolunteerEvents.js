@@ -8,7 +8,6 @@ class VolunteerEvent extends Component {
     super(props);
     this.state = {
       events: [],
-      message: null,
     };
     this.reloadEventsList = this.reloadEventsList.bind(this);
   }
@@ -18,9 +17,10 @@ class VolunteerEvent extends Component {
   }
 
   reloadEventsList() {
-    EventService.fetchEvents().then((response) => {
+    EventService.getEvents().then((response) => {
       this.setState({ events: response.data });
-    });
+    })
+    .catch(err => console.log(err));
   }
 
   render() {
@@ -43,7 +43,6 @@ class VolunteerEvent extends Component {
               <thead>
                 <tr>
                   <th>Charity Name</th>
-                  <th>Charity Phone</th>
                   <th>Event Name</th>
                   <th>Event Description</th>
                   <th>Event Location</th>
@@ -55,7 +54,6 @@ class VolunteerEvent extends Component {
                 {this.state.events.map((events) => (
                   <tr key={events.id}>
                     <td>{events.charityName}</td>
-                    <td>{events.charityPhone}</td>
                     <td>{events.eventName}</td>                    
                     <td>{events.eventDescription}</td>
                     <td>{events.eventLocation}</td>

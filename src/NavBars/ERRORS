@@ -1,0 +1,5 @@
+signup and login work without any info
+create events works without any info
+after login the profile returns all profiles
+cant update a charity
+after update a charity it returns all profiles 

@@ -15,12 +15,12 @@ class CharitySignup extends Component {
       charityAddress: "",
       charityPhone: "",
     };
-    this.saveUser = this.saveUser.bind(this);
+    this.saveCharity = this.saveCharity.bind(this);
   }
 
-  saveUser = (e) => {
+  saveCharity = (e) => {
     e.preventDefault();
-    let user = {
+    let charity = {
       username: this.state.username,
       password: this.state.password,
       charityTitle: this.state.charityTitle,
@@ -30,9 +30,8 @@ class CharitySignup extends Component {
       charityPhone: this.state.charityPhone,
     };
 
-    UserService.addUser(user)
+    UserService.addCharity(charity)
       .then((res) => {
-        this.setState({ message: "User added successfully." });
         this.props.history.push("/CharityProfile");
       })
       .catch((err) => console.log(err));
@@ -94,7 +93,7 @@ class CharitySignup extends Component {
               value={this.state.value}
               onChange={this.onChange} />
           </div>
-          <button className="btn btn-success" onClick={this.saveUser}>
+          <button className="btn btn-success" onClick={this.saveCharity}>
             Create My Account
           </button>
         </form>

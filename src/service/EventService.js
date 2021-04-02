@@ -4,12 +4,14 @@ const USER_API_BASE_URL = 'http://localhost:8081/api/charity/events';
 
 class EventService {
 
-    fetchEvents() {
+//volunteer
+    getEvents() {
         return axios.get(USER_API_BASE_URL);
     }
 
+//create event
     addEvents(events) {
-        return axios.post(""+USER_API_BASE_URL, events);
+        return axios.post(USER_API_BASE_URL, events);
     }
 
     // fetchUsername(username) {

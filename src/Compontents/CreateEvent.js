@@ -7,7 +7,6 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
       charityName: "",
-      charityPhone: "",
       eventName: "",
       eventLocation: "",
       eventDate: "",
@@ -21,7 +20,6 @@ class CreateEvent extends Component {
     e.preventDefault();
     let event = {
       charityName: this.state.charityName,
-      charityPhone: this.state.charityPhone,
       eventName: this.state.eventName,
       eventLocation: this.state.eventLocation,
       eventDate: this.state.eventDate,
@@ -30,7 +28,7 @@ class CreateEvent extends Component {
     };
     EventService.addEvents(event)
       .then((res) => {
-        this.setState({ message: "Event added successfully." });
+        this.setState({message: "Event added successfully."})
         this.props.history.push("/VolunteerEvent");
       })
       .catch((err) => console.log(err));
@@ -49,15 +47,6 @@ class CreateEvent extends Component {
             <input
               type="text"
               name="charityName"
-              value={this.state.value}
-              onChange={this.onChange}/>
-          </div>
-
-          <div className="form-group">
-            <label className="item-title">Charity Phone:</label>
-            <input
-              type="phone"
-              name="charityPhone"
               value={this.state.value}
               onChange={this.onChange}/>
           </div>

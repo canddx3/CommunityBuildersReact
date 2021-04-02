@@ -12,14 +12,15 @@ class CharityLogin extends Component {
       charityName: "",
       charityCat: "",
       charityAddress: "",
-      charityPhone: ""
+      charityPhone: "",
+      message: ""
     };
-    this.getUsername = this.getUsername.bind(this);
+    this.getCharity = this.getCharity.bind(this);
   } 
 
-  getUsername = e => {
+  getCharity = e => {
     e.preventDefault();
-    let username = {
+    let charity = {
       username: this.state.username,
       password: this.state.password,
       charityTitle: this.state.charityTitle,
@@ -29,15 +30,16 @@ class CharityLogin extends Component {
       charityPhone: this.state.charityPhone
     };
 
-    UserService.getUser(username)
-    .then(res => {
-        this.setState({ message: "User Entered successfully." });
+    UserService.getCharity(charity)
+    .then((res) => {
+      // console.log(res)
+        this.setState({message: "Charity Login Successful."})
         this.props.history.push("/CharityProfile");
       })
       .catch(err => console.log(err));
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     return (
@@ -62,7 +64,7 @@ class CharityLogin extends Component {
               value={this.state.value}
               onChange={this.onChange}/>
           </div>
-          <button className="btn btn-success" onClick={this.getUsername}>
+          <button className="btn btn-success" onClick={this.getCharity}>
             Save
           </button>
         </form>

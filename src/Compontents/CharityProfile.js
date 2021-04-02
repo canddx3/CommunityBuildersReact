@@ -5,21 +5,23 @@ import CreateBar from '../NavBars/CreateBar';
 class CharityProfile extends Component {
   constructor(props) {
     super(props);
-    this.state = this.state = {
-      user: [],
-      message: null,
+    this.state = {
+      charity: []
     };
-    this.loadUser = this.loadUser.bind(this);
+    this.charityProfile = this.charityProfile.bind(this);
   }
 
   componentDidMount() {
-      this.loadUser();
+      this.charityProfile();
   } 
 
-  loadUser() {
-    UserService.fetchUsers().then((response) => {
-      this.setState({ user: response.data });
-    });
+  charityProfile() {
+    UserService.getCharity().then((response) => {
+      console.log(response)
+
+    this.setState({ charity: [response.data]});
+    })
+    .catch(err => console.log(err));
   }
 
   render() {
@@ -48,12 +50,12 @@ class CharityProfile extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.user.map((user) => (
-                  <tr key={user.id}>
-                    <td>{user.charityName}</td>
-                    <td>{user.charityCat}</td>
-                    <td>{user.charityAddress}</td>
-                    <td>{user.charityPhone}</td>
+                {this.state.charity.map((charity) => (
+                  <tr key={charity.id}>
+                    <td>{charity.charityName}</td>
+                    <td>{charity.charityCat}</td>
+                    <td>{charity.charityAddress}</td>
+                    <td>{charity.charityPhone}</td>
                   </tr>
                 ))}
               </tbody>
