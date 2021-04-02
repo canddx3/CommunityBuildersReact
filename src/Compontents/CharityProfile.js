@@ -17,8 +17,6 @@ class CharityProfile extends Component {
 
   charityProfile() {
     UserService.getCharity().then((response) => {
-      console.log(response)
-
     this.setState({ charity: [response.data]});
     })
     .catch(err => console.log(err));
