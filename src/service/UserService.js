@@ -20,8 +20,8 @@ class UserService {
     }
 
 //charity update
-    editCharity(id) {
-        return axios.put(USER_API_BASE_URL, id);
+    editCharity(charity) {
+        return axios.put("http://localhost:8081/api/charity/profile/2", charity);
     } 
 
 //charity delete

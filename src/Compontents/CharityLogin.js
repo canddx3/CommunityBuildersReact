@@ -32,7 +32,6 @@ class CharityLogin extends Component {
 
     UserService.getCharity(charity)
     .then((res) => {
-      // console.log(res)
         this.setState({message: "Charity Login Successful."})
         this.props.history.push("/CharityProfile");
       })
