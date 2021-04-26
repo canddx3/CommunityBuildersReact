@@ -26,8 +26,8 @@ export default class CreateBar extends Component {
                 <ul className="nav navbar-nav navbar-right">
                   <li>
                     <a href="http://localhost:8080/CreateEvent">
-                      <span className="glyphicon glyphicon-calendar"></span>Create
-                      Event
+                      <span className="glyphicon glyphicon-calendar"></span>
+                      Create Event
                     </a>
                   </li>
                   <li>
@@ -35,7 +35,15 @@ export default class CreateBar extends Component {
                       href="http://localhost:8080/CharityUpdate"
                       target="_self">
                       <span className="glyphicon glyphicon-log-in"></span>
-                      Update Charity Info
+                      Update Charity
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="http://localhost:8080/CharityDelete"
+                      target="_self">
+                      <span className="glyphicon glyphicon-log-in"></span>
+                      Delete Charity
                     </a>
                   </li>
                 </ul>

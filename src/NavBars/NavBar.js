@@ -23,12 +23,12 @@ export default class NavBar extends Component {
               <a href="http://localhost:8080">Home</a>
             </li>
             <li>
-              <a href="http://localhost:8080/VolunteerEvent">Volunteer Opportuntiies</a>
+              <a href="http://localhost:8080/AllEvents">Volunteer Opportuntiies</a>
             </li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="http://localhost:8080/CharityProfile">Charities</a>
+              <a href="http://localhost:8080/AllCharities">Charities</a>
             </li>
             <li>
               <a href="http://localhost:8080/CharitySignup" target="_self">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-
 import NavBar from "../NavBars/NavBar";
-import UserService from "../service/UserService";
+import CharityService from "../service/CharityService";
 
 class CharitySignup extends Component {
   constructor(props) {
@@ -9,7 +8,6 @@ class CharitySignup extends Component {
     this.state = {
       username: "",
       password: "",
-      charityTitle: "",
       charityName: "",
       charityCat: "",
       charityAddress: "",
@@ -23,15 +21,13 @@ class CharitySignup extends Component {
     let charity = {
       username: this.state.username,
       password: this.state.password,
-      charityTitle: this.state.charityTitle,
       charityName: this.state.charityName,
       charityCat: this.state.charityCat,
       charityAddress: this.state.charityAddress,
       charityPhone: this.state.charityPhone,
     };
 
-    UserService.addCharity(charity)
-      .then((res) => {
+    CharityService.createCharity(charity).then((res) => {
         this.props.history.push("/CharityProfile");
       })
       .catch((err) => console.log(err));

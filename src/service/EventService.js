@@ -4,7 +4,7 @@ const USER_API_BASE_URL = 'http://localhost:8081/api/charity/events';
 
 class EventService {
 
-//volunteer
+//all events
     getEvents() {
         return axios.get(USER_API_BASE_URL);
     }

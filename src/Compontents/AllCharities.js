@@ -1,24 +1,18 @@
 import React, { Component } from "react";
-
 import NavBar from "../NavBars/NavBar";
-import EventService from "../service/EventService";
+import CharityService from "../service/CharityService";
 
-class VolunteerEvent extends Component {
+class AllCharities extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: [],
+      charitys: [],
     };
-    this.reloadEventsList = this.reloadEventsList.bind(this);
   }
 
   componentDidMount() {
-    this.reloadEventsList();
-  }
-
-  reloadEventsList() {
-    EventService.getEvents().then((response) => {
-      this.setState({ events: response.data });
+    CharityService.getCharity().then((res) => {
+      this.setState({ charitys: res.data });
     })
     .catch(err => console.log(err));
   }
@@ -35,7 +29,7 @@ class VolunteerEvent extends Component {
               width="100%"
               className="responsive"/>
             <div className="hero-text">
-              <h2>Volunteer Opportunities</h2>
+              <h2>Charity List</h2>
             </div>
           </div>
           <div className="container">
@@ -43,22 +37,18 @@ class VolunteerEvent extends Component {
               <thead>
                 <tr>
                   <th>Charity Name</th>
-                  <th>Event Name</th>
-                  <th>Event Description</th>
-                  <th>Event Location</th>
-                  <th>Event Date</th>
-                  <th>Event Time</th>
+                  <th>Charity Category</th>
+                  <th>Charity Address</th>
+                  <th>Charity Phone</th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.events.map((events) => (
-                  <tr key={events.id}>
-                    <td>{events.charityName}</td>
-                    <td>{events.eventName}</td>                    
-                    <td>{events.eventDescription}</td>
-                    <td>{events.eventLocation}</td>
-                    <td>{events.eventDate}</td>
-                    <td>{events.eventTime}</td>
+                {this.state.charitys.map((charitys) => (
+                  <tr key={charitys.id}>
+                    <td>{charitys.charityName}</td>
+                    <td>{charitys.charityCat}</td>
+                    <td>{charitys.charityAddress}</td>
+                    <td>{charitys.charityPhone}</td>
                   </tr>
                 ))}
               </tbody>
@@ -70,4 +60,4 @@ class VolunteerEvent extends Component {
   }
 }
 
-export default VolunteerEvent;
+export default AllCharities;

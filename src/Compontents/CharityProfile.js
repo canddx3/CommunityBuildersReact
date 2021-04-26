@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
-import UserService from '../service/UserService';
+import CharityService from '../service/CharityService';
 import CreateBar from '../NavBars/CreateBar';
 
 class CharityProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      charity: []
-    };
-    this.charityProfile = this.charityProfile.bind(this);
+      id: this.props.match.params.id,
+      charity: {}
+    }
+  // this.CharityProfile = this.CharityProfile.bind(this);
   }
 
   componentDidMount() {
-      this.charityProfile();
-  } 
-
-  charityProfile() {
-    UserService.getCharity().then((response) => {
-    this.setState({ charity: [response.data]});
+    CharityService.getCharityById(this.state.id).then( res => {
+      this.setState({ charity: res.data });
     })
     .catch(err => console.log(err));
   }
@@ -37,27 +34,23 @@ class CharityProfile extends Component {
               <h2>Charity Profile</h2>
             </div>
           </div>
-          <div className="container">
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Charity Name</th>
-                  <th>Charity Cat</th>
-                  <th>Charity Address</th>
-                  <th>Charity Phone</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.charity.map((charity) => (
-                  <tr key={charity.id}>
-                    <td>{charity.charityName}</td>
-                    <td>{charity.charityCat}</td>
-                    <td>{charity.charityAddress}</td>
-                    <td>{charity.charityPhone}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="content">
+            <div className="table table-striped">
+              <label>CharityName:</label>
+              <div>{this.state.charity.charityName}</div>
+            </div>
+            <div className="table table-striped">
+              <label>CharityCat:</label>
+              <div>{this.state.charity.charityCat}</div>
+            </div>
+            <div className="table table-striped">
+              <label>CharityAddress:</label>
+              <div>{this.state.charity.charityAddress}</div>
+            </div>
+            <div className="table table-striped">
+              <label>CharityPhone:</label>
+              <div>{this.state.charity.charityPhone}</div>
+            </div>
           </div>
         </header>
       </div>

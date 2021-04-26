@@ -28,8 +28,7 @@ class CreateEvent extends Component {
     };
     EventService.addEvents(event)
       .then((res) => {
-        this.setState({message: "Event added successfully."})
-        this.props.history.push("/VolunteerEvent");
+        this.props.history.push("/AllEvents");
       })
       .catch((err) => console.log(err));
   };
@@ -146,7 +145,7 @@ class CreateEvent extends Component {
             </select>
           </div>
           <button className="btn btn-success" onClick={this.saveEvent}>
-            Update
+            Create Event
           </button>
         </form>
       </div>

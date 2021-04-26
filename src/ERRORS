@@ -1,4 +1,6 @@
-signup work without any info
-login work without any info
-create events work without any info
+signup needs errors for empty fields
+login doesnt work 
+login needs errors for empty fields
+create events needs errors for empty fields
 cant update a charity
+cant delete a charity

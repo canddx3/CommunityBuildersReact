@@ -1,44 +1,35 @@
 import React, { Component } from "react";
 import UserBar from "../NavBars/UserBar";
-import UserService from "../service/UserService";
+import CharityService from "../service/CharityService";
 
 class CharityLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "", 
-      password: "",
-      charityTitle: "",
-      charityName: "",
-      charityCat: "",
-      charityAddress: "",
-      charityPhone: "",
-      message: ""
+      id: this.props.match.params.id,
+      charity: {}
     };
-    this.getCharity = this.getCharity.bind(this);
+    // this.loginCharity = this.loginCharity.bind(this);
   } 
 
-  getCharity = e => {
-    e.preventDefault();
-    let charity = {
-      username: this.state.username,
-      password: this.state.password,
-      charityTitle: this.state.charityTitle,
-      charityName: this.state.charityName,
-      charityCat: this.state.charityCat,
-      charityAddress: this.state.charityAddress,
-      charityPhone: this.state.charityPhone
-    };
+  // loginCharity = e => {
+  //   e.preventDefault();
+  //   let charityId = {
+  //     id: this.state.id,
+  //     username: this.state.username,
+  //     password: this.state.password,
+  //   };
 
-    UserService.getCharity(charity)
-    .then((res) => {
-        this.setState({message: "Charity Login Successful."})
-        this.props.history.push("/CharityProfile");
+  componentDidMount() {
+    console.log(this.state.id)
+    CharityService.getCharityById(this.state.id).then( res => {
+      this.setState({charitys: res.data});
+      // this.props.history.push("/CharityProfile");
       })
       .catch(err => console.log(err));
   };
 
-  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  // onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
     return (
@@ -50,7 +41,7 @@ class CharityLogin extends Component {
             <label>User Name:</label>
             <input 
               type="text"
-              name="userId"
+              name="username"
               value={this.state.value}
               onChange={this.onChange}/>
           </div>
@@ -64,7 +55,7 @@ class CharityLogin extends Component {
               onChange={this.onChange}/>
           </div>
           <button className="btn btn-success" onClick={this.getCharity}>
-            Save
+            Login
           </button>
         </form>
       </div>

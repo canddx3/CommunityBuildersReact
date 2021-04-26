@@ -1,42 +1,36 @@
 import React, { Component } from 'react'
 import UserBar from "../NavBars/UserBar";
-import UserService from '../service/UserService';
+import CharityService from '../service/CharityService';
 
 class CharityUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = this.state = {
-      id: "",
+      id: this.props.match.params.id,
       username: "",
       password: "",
-      charityTitle: "",
       charityName: "",
       charityCat: "",
       charityAddress: "",
       charityPhone: ""
     };
-    this.saveCharity = this.saveCharity.bind(this);
+    this.updateCharity = this.updateCharity.bind(this);
   }
 
-  saveCharity = e => {
+  
+  updateCharity = (e) => {
     e.preventDefault();
     let charityUser = {
-      id: this.state.id,
       username: this.state.username,
-      password: this.state.password,
       charityName: this.state.charityName,
       charityCat: this.state.charityCat,
       charityAddress: this.state.charityAddress,
       charityPhone: this.state.charityPhone
     };
-
-    UserService.editCharity(charityUser)
-      .then((res) => {
-        this.setState({message: "Charity updated successfully."})
-        this.props.history.push("/CharityProfile");
-      })
-      .catch(err => console.log(err));
-  };
+    CharityService.updateCharity(charityUser, this.state.username).then( res => {
+      this.props.history.push("/CharityProfile");
+    });
+  }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
   
@@ -90,10 +84,8 @@ class CharityUpdate extends Component {
               value={this.state.value}
               onChange={this.onChange}/>
           </div>
-          
-          <button className="btn btn-success" onClick={this.saveCharity}>
-            Update
-          </button>
+          <button className="btn btn-success" onClick={this.updateCharity}>Update</button>
+          <buttom className="btn btn-danger" onClick={this.deleteCharity.bind(this)}>Delete</buttom>
         </form>
       </div>
     );
